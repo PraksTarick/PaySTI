@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+         prefHeight="403.0" prefWidth="618.0"
+         tabClosingPolicy="UNAVAILABLE"
+         xmlns:fx="http://javafx.com/fxml/1"
+         xmlns="http://javafx.com/javafx/25">
+
+    <tabs>
+        <Tab text="Home">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0"
+                            prefHeight="180.0" prefWidth="200.0">
+                    <children>
+
+                       <!-- Background Image -->
+                        <ImageView fitHeight="411.0" fitWidth="632.0" layoutY="-1.0"
+                                   pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="/images/sti-logo.png" />
+                            </image>
+                        </ImageView>
+
+                        <!-- Blue Header Bar (drawn first, so behind everything) -->
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE"
+                                   height="72.0" layoutX="-5.0" layoutY="-7.0"
+                                   stroke="BLACK" strokeType="INSIDE" width="625.0" />
+
+                       
+
+                          <!-- MenuButton next to Avatar -->
+                        <MenuButton text="Menu" layoutX="528.0" layoutY="14.0">
+                            <items>
+                                <MenuItem text="Log Out" />
+                            </items>
+                        </MenuButton>
+
+                        <!-- Avatar ImageView -->
+                        <ImageView layoutX="478.0" layoutY="14.0" fitHeight="40" fitWidth="40"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="/images/default-profile.jpg" />
+                            </image>
+                        </ImageView>
+
+                        <!-- Replaced CardPane with VBox-like layout using labels -->
+                        <AnchorPane layoutX="-7.0" layoutY="52.0"
+                                    prefHeight="323.0" prefWidth="153.0">
+                            <children>
+                                <Label layoutY="10" style="-fx-padding:10;" text="Tuition" />
+                            </children>
+                        </AnchorPane>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+
+        <Tab text="Other">
+            <content>
+                <AnchorPane prefHeight="180.0" prefWidth="200.0" />
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>
