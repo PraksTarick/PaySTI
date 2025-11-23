@@ -60,7 +60,10 @@
                                     <Insets bottom="10.0" />
                                 </padding>
                             </Label>
-                            <Button fx:id="tuitionButton" text="💰 Tuition Balance" maxWidth="Infinity" alignment="CENTER_LEFT" onAction="#handleTuitionBalance" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 15; -fx-font-size: 14;">
+                            <Button text="📊 Dashboard" maxWidth="Infinity" alignment="CENTER_LEFT"
+       style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 15; -fx-font-size: 14;">
+                            </Button>
+                            <Button fx:id="tuitionButton" text="💰 Tuition Balance" maxWidth="Infinity" alignment="CENTER_LEFT" onAction="#handleTuitionBalance" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 15; -fx-font-size: 14;">
                             </Button>
                             <Button text="📚 Courses" maxWidth="Infinity" alignment="CENTER_LEFT" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 15; -fx-font-size: 14;">
                             </Button>
