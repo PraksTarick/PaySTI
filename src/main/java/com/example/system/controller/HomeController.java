@@ -84,10 +84,7 @@ public class HomeController {
     @FXML
     public void handleTuitionBalance(ActionEvent event) {
         try {
-            String projectRoot = System.getProperty("user.dir");
-            java.io.File fxmlFile = new java.io.File(projectRoot + "/src/main/resources/fxml/TuitionBalance.fxml");
-            
-            FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TuitionBalance.fxml"));
             loader.setControllerFactory(springContext::getBean);
             Parent root = loader.load();
 
@@ -106,10 +103,7 @@ public class HomeController {
 
     private void navigateToLogin(ActionEvent event) {
         try {
-            String projectRoot = System.getProperty("user.dir");
-            java.io.File fxmlFile = new java.io.File(projectRoot + "/src/main/resources/fxml/login.fxml");
-            
-            FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml"));
             loader.setControllerFactory(springContext::getBean);
             Parent root = loader.load();
 

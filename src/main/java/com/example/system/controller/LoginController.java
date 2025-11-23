@@ -29,7 +29,15 @@ public class LoginController {
     private PasswordField passwordField;
     
     @FXML
+    private TextField passwordVisibleField;
+    
+    @FXML
+    private Button togglePasswordButton;
+    
+    @FXML
     private Button loginButton;
+    
+    private boolean isPasswordVisible = false;
     
     @Autowired
     private AuthService authService;
@@ -43,6 +51,43 @@ public class LoginController {
     @FXML
     public void initialize() {
         System.out.println("Login Controller initialized");
+        
+        // Sync password fields - when passwordField changes, update passwordVisibleField
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!isPasswordVisible) {
+                passwordVisibleField.setText(newValue);
+            }
+        });
+        
+        // Sync password fields - when passwordVisibleField changes, update passwordField
+        passwordVisibleField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (isPasswordVisible) {
+                passwordField.setText(newValue);
+            }
+        });
+    }
+    
+    @FXML
+    public void togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible;
+        
+        if (isPasswordVisible) {
+            // Show password
+            passwordVisibleField.setText(passwordField.getText());
+            passwordVisibleField.setVisible(true);
+            passwordVisibleField.setManaged(true);
+            passwordField.setVisible(false);
+            passwordField.setManaged(false);
+            togglePasswordButton.setText("🙈");
+        } else {
+            // Hide password
+            passwordField.setText(passwordVisibleField.getText());
+            passwordField.setVisible(true);
+            passwordField.setManaged(true);
+            passwordVisibleField.setVisible(false);
+            passwordVisibleField.setManaged(false);
+            togglePasswordButton.setText("👁");
+        }
     }
     
     @FXML
@@ -58,7 +103,8 @@ public class LoginController {
     @FXML
     public void handleLogin() {
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        // Get password from the visible field (whichever is currently shown)
+        String password = isPasswordVisible ? passwordVisibleField.getText() : passwordField.getText();
         
         // Validate input
         if (username.isEmpty() || password.isEmpty()) {
@@ -99,8 +145,8 @@ public class LoginController {
             // Get current stage
             Stage stage = (Stage) loginButton.getScene().getWindow();
             
-            // Try to load from /fxml/ folder (lowercase)
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Homepage.fxml"));
+            // Load from /FXML/ folder (uppercase)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Homepage.fxml"));
             loader.setControllerFactory(springContext::getBean);
             
             System.out.println("Loading Homepage from: " + getClass().getResource("/fxml/Homepage.fxml"));

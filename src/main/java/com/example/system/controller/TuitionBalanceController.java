@@ -45,6 +45,18 @@ public class TuitionBalanceController {
     @FXML
     private Label schoolYearLabel;
     
+    @FXML
+    private Label prelimsLabel;
+    
+    @FXML
+    private Label midtermsLabel;
+    
+    @FXML
+    private Label preFinalsLabel;
+    
+    @FXML
+    private Label finalsLabel;
+    
     @Autowired
     private UserRepository userRepository;
     
@@ -83,7 +95,22 @@ public class TuitionBalanceController {
                     semesterLabel.setText(balance.getSemester());
                     schoolYearLabel.setText(balance.getSchoolYear());
                     
+                    // Calculate term payments: Each term is exactly ₱9,500
+                    double termAmount = 9500.00;
+                    double amountPaid = balance.getAmountPaid() != null ? balance.getAmountPaid() : 0.0;
+                    
+                    // Calculate how many terms have been fully paid
+                    int termsPaid = (int) Math.floor(amountPaid / termAmount);
+                    
+                    // Display each term: 0.00 if paid, 9,500 if not paid
+                    prelimsLabel.setText(termsPaid >= 1 ? formatter.format(0.00) : formatter.format(termAmount));
+                    midtermsLabel.setText(termsPaid >= 2 ? formatter.format(0.00) : formatter.format(termAmount));
+                    preFinalsLabel.setText(termsPaid >= 3 ? formatter.format(0.00) : formatter.format(termAmount));
+                    finalsLabel.setText(termsPaid >= 4 ? formatter.format(0.00) : formatter.format(termAmount));
+                    
                     System.out.println("Loaded balance for: " + user.getFullName());
+                    System.out.println("Amount paid: " + formatter.format(amountPaid));
+                    System.out.println("Terms paid: " + termsPaid + " out of 4");
                 }
             }
         }
@@ -92,10 +119,7 @@ public class TuitionBalanceController {
     @FXML
     public void handleBack() {
         try {
-            String projectRoot = System.getProperty("user.dir");
-            java.io.File fxmlFile = new java.io.File(projectRoot + "/src/main/resources/fxml/Homepage.fxml");
-            
-            FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Homepage.fxml"));
             loader.setControllerFactory(springContext::getBean);
             Parent root = loader.load();
             

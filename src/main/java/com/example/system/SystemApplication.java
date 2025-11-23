@@ -1,7 +1,5 @@
 package com.example.system;
 
-import java.io.File;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -36,17 +34,8 @@ public class SystemApplication extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Load from absolute file path in src/main/resources
-        File fxmlFile = new File("src/main/resources/FXML/Login.fxml");
-        System.out.println("Starting app with FXML at: " + fxmlFile.getAbsolutePath());
-        System.out.println("File exists: " + fxmlFile.exists());
-        
-        if (!fxmlFile.exists()) {
-            System.err.println("ERROR: Login.fxml not found at: " + fxmlFile.getAbsolutePath());
-            return;
-        }
-        
-        FXMLLoader loader = new FXMLLoader(fxmlFile.toURI().toURL());
+        // Load FXML from classpath resources (works in both dev and JAR)
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/login.fxml"));
         loader.setControllerFactory(springContext::getBean);
         
         Parent root = loader.load();
