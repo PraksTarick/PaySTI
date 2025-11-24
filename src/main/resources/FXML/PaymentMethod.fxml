@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.system.controller.PaymentMethodController" prefHeight="600.0" prefWidth="900.0">
+    <center>
+        <StackPane>
+            <ImageView fitHeight="600.0" fitWidth="900.0" opacity="0.1" preserveRatio="false">
+                <image>
+                    <Image url="/images/sti-logo.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="0">
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #1e88e5; -fx-padding: 15;">
+                    <children>
+                        <Button text="← Back" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 14; -fx-padding: 8 15 8 15;" />
+                        <Label text="Choose Payment Method" textFill="white" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <VBox spacing="25.0" style="-fx-padding: 40; -fx-background-color: #ecf0f1;" VBox.vgrow="ALWAYS" alignment="CENTER">
+                    
+                    <!-- Payment Methods Card -->
+                    <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 40;" maxWidth="500">
+                        <effect>
+                            <DropShadow radius="5" offsetY="2">
+                                <color>
+                                    <Color opacity="0.2" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                        <Label text="Select Payment Method" style="-fx-font-weight: bold;" textAlignment="CENTER">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Separator />
+                        <Label text="Choose how you would like to pay your tuition fee" textFill="#666" textAlignment="CENTER" wrapText="true" />
+                        
+                        <VBox spacing="15.0" style="-fx-padding: 20 0 0 0;">
+                            <!-- GCash Button -->
+                            <Button onAction="#handleGCash" style="-fx-background-color: #0070ba; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 20; -fx-background-radius: 8; -fx-cursor: hand;" maxWidth="Infinity">
+                                <graphic>
+                                    <HBox spacing="10" alignment="CENTER_LEFT">
+                                        <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                                            <Image url="@../images/gcash-logo.png" />
+                                        </ImageView>
+                                        <Label text="Pay with GCash" textFill="white" style="-fx-font-weight: bold;" />
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            
+                            <!-- GoTyme Button -->
+                            <Button onAction="#handleGoTyme" style="-fx-background-color: #6c1d5f; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 20; -fx-background-radius: 8; -fx-cursor: hand;" maxWidth="Infinity">
+                                <graphic>
+                                    <HBox spacing="10" alignment="CENTER_LEFT">
+                                        <ImageView fitWidth="30" fitHeight="30" preserveRatio="true">
+                                            <Image url="@../images/gotyme-logo.png" />
+                                        </ImageView>
+                                        <Label text="Pay with GoTyme" textFill="white" style="-fx-font-weight: bold;" />
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                        </VBox>
+                        
+                        <Label text="Both methods are secure and processed instantly" textFill="#999" textAlignment="CENTER" wrapText="true" style="-fx-padding: 20 0 0 0;">
+                            <font>
+                                <Font size="12.0" />
+                            </font>
+                        </Label>
+                    </VBox>
+                    
+                </VBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
