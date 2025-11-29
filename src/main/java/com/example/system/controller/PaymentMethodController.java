@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -33,7 +34,8 @@ public class PaymentMethodController {
             Scene currentScene = stage.getScene();
             currentScene.setRoot(root);
             
-            stage.setTitle("Tuition Balance");
+            stage.setTitle("PaySTI - Tuition Balance");
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
             // ⭐ Restore the previous window state
             if (wasMaximized) {
                 stage.setMaximized(true);
@@ -68,7 +70,8 @@ public class PaymentMethodController {
             Scene currentScene = stage.getScene();
             currentScene.setRoot(root);
             
-            stage.setTitle(title);
+            stage.setTitle("PaySTI - " + title);
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
             // ⭐ Restore the previous window state
             if (wasMaximized) {
                 stage.setMaximized(true);
@@ -129,7 +132,8 @@ public class PaymentMethodController {
             Scene currentScene = stage.getScene();
             currentScene.setRoot(root);
             
-            stage.setTitle(paymentMethod);
+            stage.setTitle("PaySTI - " + paymentMethod);
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
             if (wasMaximized) {
                 stage.setMaximized(true);
             }

@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 @Component
@@ -137,6 +138,7 @@ public class LoginController {
             scene.setRoot(homepageRoot);
 
             stage.setTitle("PaySTI - Home");
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
 
             System.out.println("Homepage loaded without resizing.");
 

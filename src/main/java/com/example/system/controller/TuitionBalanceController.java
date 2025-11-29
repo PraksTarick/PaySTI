@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 @Component
@@ -171,6 +172,7 @@ public class TuitionBalanceController implements Initializable {
             currentScene.setRoot(root);
             
             stage.setTitle("PaySTI - Home");
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
             // ⭐ Restore the previous window state
             if (wasMaximized) {
                 stage.setMaximized(true);
@@ -196,7 +198,8 @@ public class TuitionBalanceController implements Initializable {
             Scene currentScene = stage.getScene();
             currentScene.setRoot(root);
             
-            stage.setTitle("Choose Payment Method");
+            stage.setTitle("PaySTI - Payment Method");
+            stage.getIcons().add(new Image("/images/sti-logo.png"));
             // ⭐ Restore the previous window state
             if (wasMaximized) {
                 stage.setMaximized(true);

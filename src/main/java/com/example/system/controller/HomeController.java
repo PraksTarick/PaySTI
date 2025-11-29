@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -95,7 +96,8 @@ public class HomeController {
                 Scene currentScene = stage.getScene();
                 currentScene.setRoot(root);
                 
-                stage.setTitle("Tuition Balance");
+                stage.setTitle("PaySTI - Tuition Balance");
+                stage.getIcons().add(new Image("/images/sti-logo.png"));
                 // ⭐ Restore the previous window state
                 if (wasMaximized) {
                     stage.setMaximized(true);
@@ -121,7 +123,8 @@ public class HomeController {
                 Scene currentScene = stage.getScene();
                 currentScene.setRoot(root);
                 
-                stage.setTitle("Login - PaySTI");
+                stage.setTitle("PaySTI - Login System");
+                stage.getIcons().add(new Image("/images/sti-logo.png"));
                 if (wasMaximized) {
                     stage.setMaximized(true);
                 }

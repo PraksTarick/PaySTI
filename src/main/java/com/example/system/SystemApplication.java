@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 @SpringBootApplication
@@ -42,7 +43,8 @@ public class SystemApplication extends Application {
         
         // Set up the scene
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Tuition Management System - Login");
+        primaryStage.setTitle("PaySTI - Login System");
+        primaryStage.getIcons().add(new Image("/images/sti-logo.png"));
         primaryStage.setScene(scene);
         primaryStage.setMaximized(true);
         primaryStage.show();
