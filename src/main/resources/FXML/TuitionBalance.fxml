@@ -10,196 +10,139 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.system.controller.TuitionBalanceController" prefHeight="600.0" prefWidth="900.0">
     <center>
-        <ScrollPane fitToWidth="true" style="-fx-background: #ecf0f1; -fx-border-color: #ecf0f1;">
-            <content>
-                <StackPane>
-                    <ImageView fitHeight="700.0" fitWidth="900.0" opacity="0.1" preserveRatio="false">
-                        <image>
-                            <Image url="/images/sti-logo.png" />
-                        </image>
-                    </ImageView>
-                    <VBox spacing="0">
-                        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #1e88e5; -fx-padding: 15;">
-                            <children>
-                                <Button text="← Back" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 14; -fx-padding: 8 15 8 15;" />
-                                <Label text="Tuition Balance" textFill="white" style="-fx-font-weight: bold;">
-                                    <font>
-                                        <Font size="24.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </HBox>
-                        <VBox spacing="25.0" style="-fx-padding: 40; -fx-background-color: #ecf0f1;" VBox.vgrow="ALWAYS">
-                            <!-- Payment Button Card -->
-                            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
-                                <effect>
-                                    <DropShadow radius="5" offsetY="2">
-                                        <color>
-                                            <Color opacity="0.2" />
-                                        </color>
-                                    </DropShadow>
-                                </effect>
-                                <Label text="Make a Payment" style="-fx-font-weight: bold;">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Label>
-                                <Separator />
-                                <Label text="Pay your remaining balance using your preferred payment method" textFill="#666" wrapText="true" />
-                                <Button text="💳 Make Payment" onAction="#handleMakePayment" 
-                                       style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"
-                                       maxWidth="Infinity" />
-                            </VBox>
-                            
-                            <!-- Student Information Card -->
-                            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
-                                <effect>
-                                    <DropShadow radius="5" offsetY="2">
-                                        <color>
-                                            <Color opacity="0.2" />
-                                        </color>
-                                    </DropShadow>
-                                </effect>
-                                <Label text="Student Information" style="-fx-font-weight: bold;">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Label>
-                                <Separator />
-                                <GridPane hgap="20.0" vgap="10.0">
-                                    <columnConstraints>
-                                        <ColumnConstraints minWidth="150.0" />
-                                        <ColumnConstraints />
-                                    </columnConstraints>
-                                    
-                                    <!-- Semester and School Year -->
-                                    <Label text="Semester:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Label fx:id="semesterLabel" text="1st Semester" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                    
-                                    <Label text="School Year:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                    <Label fx:id="schoolYearLabel" text="2024-2025" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    
-                                    <!-- Student Details -->
-                                    <Label text="Student Name:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                                    <Label fx:id="studentNameLabel" text="Pedro Cruz" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    
-                                    <Label text="Student ID:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                                    <Label fx:id="studentIdLabel" text="2021-000003" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    
-                                    <Label text="Email:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                                    <Label fx:id="emailLabel" text="pedro.cruz@sti.edu" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                </GridPane>
-                            </VBox>
-                            
-                            <!-- Term Breakdown Card -->
-                            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
-                                <effect>
-                                    <DropShadow radius="5" offsetY="2">
-                                        <color>
-                                            <Color opacity="0.2" />
-                                        </color>
-                                    </DropShadow>
-                                </effect>
-                                <Label text="Term Breakdown" style="-fx-font-weight: bold;">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Label>
-                                <Separator />
-                                <Label text="Payment schedule for each academic term (₱9,500 per term)" textFill="#666" wrapText="true" />
-                                
-                                <GridPane hgap="20.0" vgap="10.0" style="-fx-padding: 15 0 0 0;">
-                                    <columnConstraints>
-                                        <ColumnConstraints minWidth="120.0" />
-                                        <ColumnConstraints minWidth="150.0" />
-                                        <ColumnConstraints minWidth="100.0" />
-                                    </columnConstraints>
-                                    
-                                    <!-- Headers -->
-                                    <Label text="Term" style="-fx-font-weight: bold; -fx-text-fill: #1e88e5;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                    <Label text="Amount Due" style="-fx-font-weight: bold; -fx-text-fill: #1e88e5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                                    <Label text="Status" style="-fx-font-weight: bold; -fx-text-fill: #1e88e5;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                                    
-                                    <!-- Prelims -->
-                                    <Label text="Prelims" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                                    <Label fx:id="prelimsLabel" text="₱9,500.00" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label fx:id="prelimsStatusLabel" text="Paid" textFill="#27ae60" style="-fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                    
-                                    <!-- Midterms -->
-                                    <Label text="Midterms" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                                    <Label fx:id="midtermsLabel" text="₱9,500.00" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Label fx:id="midtermsStatusLabel" text="Unpaid" textFill="#e74c3c" style="-fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                    
-                                    <!-- Pre-Finals -->
-                                    <Label text="Pre-Finals" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                                    <Label fx:id="preFinalsLabel" text="₱9,500.00" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Label fx:id="preFinalsStatusLabel" text="Unpaid" textFill="#e74c3c" style="-fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                    
-                                    <!-- Finals -->
-                                    <Label text="Finals" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                                    <Label fx:id="finalsLabel" text="₱9,500.00" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <Label fx:id="finalsStatusLabel" text="Unpaid" textFill="#e74c3c" style="-fx-font-weight: bold;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                </GridPane>
-                            </VBox>
-                            
-                            <!-- Balance Summary Card -->
-                            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
-                                <effect>
-                                    <DropShadow radius="5" offsetY="2">
-                                        <color>
-                                            <Color opacity="0.2" />
-                                        </color>
-                                    </DropShadow>
-                                </effect>
-                                <Label text="Balance Summary" style="-fx-font-weight: bold;">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                </Label>
-                                <Separator />
-                                <HBox spacing="50.0">
-                                    <VBox spacing="8.0" HBox.hgrow="ALWAYS">
-                                        <Label text="Total Tuition Fee" textFill="#666">
-                                            <font>
-                                                <Font size="13.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="totalFeeLabel" text="₱38,000.00" textFill="#333" style="-fx-font-weight: bold;">
-                                            <font>
-                                                <Font size="22.0" />
-                                            </font>
-                                        </Label>
-                                    </VBox>
-                                    <VBox spacing="8.0" HBox.hgrow="ALWAYS">
-                                        <Label text="Amount Paid" textFill="#666">
-                                            <font>
-                                                <Font size="13.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="amountPaidLabel" text="₱9,500.00" textFill="#27ae60" style="-fx-font-weight: bold;">
-                                            <font>
-                                                <Font size="22.0" />
-                                            </font>
-                                        </Label>
-                                    </VBox>
-                                    <VBox spacing="8.0" HBox.hgrow="ALWAYS">
-                                        <Label text="Remaining Balance" textFill="#666">
-                                            <font>
-                                                <Font size="13.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="remainingBalanceLabel" text="₱28,500.00" textFill="#e74c3c" style="-fx-font-weight: bold;">
-                                            <font>
-                                                <Font size="22.0" />
-                                            </font>
-                                            </Label>
-                                    </VBox>
-                                </HBox>
-                            </VBox>
-                        </VBox>
+        <StackPane>
+            <ImageView fitHeight="600.0" fitWidth="900.0" opacity="0.1" preserveRatio="false">
+                <image>
+                    <Image url="/images/sti-logo.png" />
+                </image>
+            </ImageView>
+            <VBox spacing="0">
+                <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #1e88e5; -fx-padding: 15;">
+                    <children>
+                        <Button text="← Back" onAction="#handleBack" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 14; -fx-padding: 8 15 8 15;" />
+                        <Label text="Tuition Balance" textFill="white" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <VBox spacing="25.0" style="-fx-padding: 40; -fx-background-color: #ecf0f1;" VBox.vgrow="ALWAYS">
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+                        <effect>
+                            <DropShadow radius="5" offsetY="2">
+                                <color>
+                                    <Color opacity="0.2" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                        <Label text="Student Information" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Separator />
+                        <GridPane hgap="20.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="150.0" />
+                                <ColumnConstraints />
+                            </columnConstraints>
+                            <Label text="Student Name:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label fx:id="studentNameLabel" text="John Doe" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            <Label text="Student ID:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <Label fx:id="studentIdLabel" text="2021-000001" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label text="Email:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <Label fx:id="emailLabel" text="john.doe@sti.edu" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        </GridPane>
                     </VBox>
-                </StackPane>
-            </content>
-        </ScrollPane>
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+                        <effect>
+                            <DropShadow radius="5" offsetY="2">
+                                <color>
+                                    <Color opacity="0.2" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                        <Label text="Balance Summary" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Separator />
+                        <HBox spacing="50.0">
+                            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                <Label text="Total Tuition Fee" textFill="#666">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="totalFeeLabel" text="₱50,000.00" textFill="#333" style="-fx-font-weight: bold;">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                <Label text="Amount Paid" textFill="#666">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="amountPaidLabel" text="₱20,000.00" textFill="#27ae60" style="-fx-font-weight: bold;">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                            <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                <Label text="Remaining Balance" textFill="#666">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="remainingBalanceLabel" text="₱30,000.00" textFill="#e74c3c" style="-fx-font-weight: bold;">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                    <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 25;">
+                        <effect>
+                            <DropShadow radius="5" offsetY="2">
+                                <color>
+                                    <Color opacity="0.2" />
+                                </color>
+                            </DropShadow>
+                        </effect>
+                        <Label text="Semester Information" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Separator />
+                        <GridPane hgap="20.0" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="150.0" />
+                                <ColumnConstraints />
+                            </columnConstraints>
+                            <Label text="Semester:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <Label fx:id="semesterLabel" text="1st Semester" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                            <Label text="School Year:" textFill="#666" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <Label fx:id="schoolYearLabel" text="2024-2025" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        </GridPane>
+                    </VBox>
+                    
+                    <!-- Payment Button -->
+                    <HBox alignment="CENTER" style="-fx-padding: 10 0 0 0;">
+                        <Button text="💳 Make Payment" onAction="#handleMakePayment" 
+                               style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold; -fx-padding: 15 40 15 40; -fx-background-radius: 8; -fx-cursor: hand;">
+                        </Button>
+                    </HBox>
+                    
+                </VBox>
+            </VBox>
+        </StackPane>
     </center>
 </BorderPane>
