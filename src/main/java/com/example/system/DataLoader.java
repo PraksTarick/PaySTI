@@ -1,13 +1,14 @@
 package com.example.system;
 
-import com.example.system.models.StudentBalance;
-import com.example.system.models.User;
-import com.example.system.repositories.StudentBalanceRepository;
-import com.example.system.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import com.example.system.models.StudentBalance;
+import com.example.system.models.User;
+import com.example.system.repositories.StudentBalanceRepository;
+import com.example.system.repositories.UserRepository;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -31,10 +32,10 @@ public class DataLoader implements CommandLineRunner {
             
             // Test Student User 1
             User student1 = new User();
-            student1.setUsername("student");
+            student1.setUsername("john");
             student1.setPassword(passwordEncoder.encode("password123"));
             student1.setFullName("John Doe");
-            student1.setEmail("john.doe@sti.edu");
+            student1.setEmail("john.doe@ormoc.sti.edu.ph");
             student1.setStudentId("2021-000001");
             student1.setRole("STUDENT");
             student1.setEnabled(true);
@@ -56,7 +57,7 @@ public class DataLoader implements CommandLineRunner {
             student2.setUsername("maria");
             student2.setPassword(passwordEncoder.encode("maria123"));
             student2.setFullName("Maria Santos");
-            student2.setEmail("maria.santos@sti.edu");
+            student2.setEmail("maria.santos@ormoc.sti.edu.ph");
             student2.setStudentId("2021-000002");
             student2.setRole("STUDENT");
             student2.setEnabled(true);
@@ -78,7 +79,7 @@ public class DataLoader implements CommandLineRunner {
             student3.setUsername("pedro");
             student3.setPassword(passwordEncoder.encode("pedro123"));
             student3.setFullName("Pedro Cruz");
-            student3.setEmail("pedro.cruz@sti.edu");
+            student3.setEmail("pedro.cruz@ormoc.sti.edu.ph");
             student3.setStudentId("2021-000003");
             student3.setRole("STUDENT");
             student3.setEnabled(true);
